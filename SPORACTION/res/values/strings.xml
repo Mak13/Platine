@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">SPORACTION</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="register">INSCRIPTION</string>
+    <string name="login">CONNEXION</string>
+    <string name="registerBTN">CREER MON COMPTE</string>
+    <string name="loginBTN">SE CONNECTER</string>
+    <string name="pseudo">Pseudo</string>
+    <string name="email">Email</string>
+    <string name="password">Mot de passe</string>
+    <string name="alreadyregistred">Déjà inscrit. Connexion!</string>
+    <string name="notRegistredYet">Pas encore de compte. Inscription!</string>
+    <string name="rememberme">Se souvenir de moi</string>
+    
+
+</resources>
