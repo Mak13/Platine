@@ -2,6 +2,7 @@ package lille1.eservices.sporaction;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -18,6 +19,12 @@ public class Login extends Activity {
 	CheckBox checkBox;
 	Button loginButton, linkToRegisterButton;
 	
+	// Enregistrement des préférences
+	public static final String PREFS_NAME = ".Preferences";   
+	private static final String PREF_PSEUDO = "pseudo";
+	private static final String PREF_PASSWORD = "password";
+	private static final String PREF_CHECKED = "checked";
+	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +37,16 @@ public class Login extends Activity {
         loginButton = (Button) findViewById(R.id.btnLogin);
         linkToRegisterButton = (Button) findViewById(R.id.btnLinkToRegisterScreen);
         
+        // Restauration des préférences sauvegardées si la checkbox est cochée
+        SharedPreferences pref = getSharedPreferences(PREFS_NAME,MODE_PRIVATE);  
+        String pseudo = pref.getString(PREF_PSEUDO, "");
+        String password = pref.getString(PREF_PASSWORD, "");
+        String checked = pref.getString(PREF_CHECKED, "");
+
+        inputPseudo.setText(pseudo);
+        inputPassword.setText(password);
+        checkBox.setChecked(Boolean.parseBoolean(checked));
+        
         // Creation of a new profil
      	profil = new Profil();
      	
@@ -38,6 +55,19 @@ public class Login extends Activity {
      	
         loginButton.setOnClickListener(new View.OnClickListener() {      
         	public void onClick(View view) {
+        		// Enregistrement des préférences si la checkbox est cochée  
+	            if(checkBox.isChecked()) {
+	            	getSharedPreferences(PREFS_NAME,MODE_PRIVATE)
+	                	.edit()
+	                	.putString(PREF_PSEUDO, inputPseudo.getText().toString())
+	                	.putString(PREF_PASSWORD, inputPassword.getText().toString())
+	                	.putString(PREF_CHECKED,"TRUE")
+	                	.commit();
+	            } else if(!checkBox.isChecked()) {
+	            	// Sinon on les efface */   
+	            	getSharedPreferences(PREFS_NAME,MODE_PRIVATE).edit().clear().commit();
+	            }
+	            
         		// Récupération du contenu des EditText
 	        	String pseudo = inputPseudo.getText().toString();
 	        	String password = inputPassword.getText().toString();

@@ -21,6 +21,12 @@ public class Register extends Activity {
 	private CheckBox checkBox;
 	private Button registerButton, linkToLoginButton;
 	
+	// Enregistrement des préférences
+	public static final String PREFS_NAME = ".Preferences";   
+	private static final String PREF_PSEUDO = "pseudo";
+	private static final String PREF_PASSWORD = "password";
+	private static final String PREF_CHECKED = "checked";
+	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +50,19 @@ public class Register extends Activity {
      	registerButton.setOnClickListener(new OnClickListener() {
 	        @Override
 	        public void onClick(View v) {
+	            // Enregistrement des préférences si la checkbox est cochée  
+	            if(checkBox.isChecked()) {
+	            	getSharedPreferences(PREFS_NAME,MODE_PRIVATE)
+	                	.edit()
+	                	.putString(PREF_PSEUDO, inputPseudo.getText().toString())
+	                	.putString(PREF_PASSWORD, inputPassword.getText().toString())
+	                	.putString(PREF_CHECKED,"TRUE")
+	                	.commit();
+	            } else if(!checkBox.isChecked()) {
+	            	// Sinon on les efface */   
+	            	getSharedPreferences(PREFS_NAME,MODE_PRIVATE).edit().clear().commit();
+	            }
+
 	            // Récupération du contenu des EditText
 	        	String pseudo = inputPseudo.getText().toString();
 	        	String email = inputEmail.getText().toString();
