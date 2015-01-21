@@ -1,5 +1,4 @@
-package lille1.eservices.sporaction;
-
+package lille1.eservices.sporaction.model;
 
 public class Profil {
 	private int id;
@@ -9,18 +8,14 @@ public class Profil {
 	private String adresse;
 	private String codePostal;
 	private String ville;
-	private String sportsPratiques;
-	private String niveauxPratiques;
 	private String plagesHoraires;
 	private String rayonGeographique;
-	private String rememberMe;
  
 	public Profil(){}
  
 	public Profil(int id, String pseudo, String mail, String motDePasse,
-			String adresse, String codePostal, String ville, 
-			String sportsPratiques, String niveauxPratiques, 
-			String plagesHoraires, String rayonGeographique, String rememberMe){
+			String adresse, String codePostal, String ville,
+			String plagesHoraires, String rayonGeographique){
 		this.id = id;
 		this.pseudo = pseudo;
 		this.mail = mail;
@@ -28,11 +23,8 @@ public class Profil {
 		this.adresse = adresse;
 		this.codePostal = codePostal;
 		this.ville = ville;
-		this.sportsPratiques = sportsPratiques;
-		this.niveauxPratiques = niveauxPratiques;
 		this.plagesHoraires = plagesHoraires;
 		this.rayonGeographique = rayonGeographique;
-		this.rememberMe = rememberMe;
 	}
  
 	public int getId() {
@@ -91,22 +83,6 @@ public class Profil {
 		this.ville = ville;
 	}
 	
-	public String getSportsPratiques() {
-		return sportsPratiques;
-	}
- 
-	public void setSportsPratiques(String sportsPratiques) {
-		this.sportsPratiques = sportsPratiques;
-	}
-	
-	public String getNiveauxPratiques() {
-		return niveauxPratiques;
-	}
- 
-	public void setNiveauxPratiques(String niveauxPratiques) {
-		this.niveauxPratiques = niveauxPratiques;
-	}
-	
 	public String getPlagesHoraires() {
 		return plagesHoraires;
 	}
@@ -122,23 +98,12 @@ public class Profil {
 	public void setRayonGeographique(String rayonGeographique) {
 		this.rayonGeographique = rayonGeographique;
 	}
-	
-	public String getRememberMe() {
-		return rememberMe;
-	}
- 
-	public void setRememberMe(String rememberMe) {
-		this.rememberMe = rememberMe;
-	}
  
 	public String toString(){
 		return "ID : "+id+"\nPSEUDO : "+pseudo+"\nMAIL : "+mail
 				+"\nMOT DE PASSE : "+motDePasse+"\nADRESSE : "+adresse
 				+"\nCODE POSTAL : "+codePostal+"\nVILLE : "+ville
-				+"\nSPORTS PRATIQUES : "+sportsPratiques
-				+"\nNIVEAUX DE PRATIQUES : "+niveauxPratiques
 				+"\nPLAGES HORAIRES : "+plagesHoraires
-				+"\nRAYON GEOGRAPHIQUE : "+rayonGeographique
-				+"\n`REMEMBER ME : "+rememberMe;
+				+"\nRAYON GEOGRAPHIQUE : "+rayonGeographique;
 	}
 }

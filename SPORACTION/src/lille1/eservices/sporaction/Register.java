@@ -2,6 +2,9 @@ package lille1.eservices.sporaction;
 
 import java.util.regex.Pattern;
 
+import lille1.eservices.sporaction.model.Profil;
+import lille1.eservices.sporaction.sqlite.ProfilsDB;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -83,13 +86,6 @@ public class Register extends Activity {
 					    	        	profil.setPseudo(pseudo);
 					    	        	profil.setMail(email);
 					    	        	profil.setMotDePasse(password);
-					    	        	
-					    	        	// Test de la case "Se sevenir de moi"
-					    	        	if(checkBox.isChecked()) {
-					    	        		profil.setRememberMe("TRUE");
-					    	        	} else {
-					    	        		profil.setRememberMe("FALSE");
-					    	        	}
 					    	        	
 					    	        	// Ajout dans la base
 					    	        	profilDb.insert(profil);

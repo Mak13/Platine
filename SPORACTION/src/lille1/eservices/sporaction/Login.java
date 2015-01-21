@@ -1,5 +1,7 @@
 package lille1.eservices.sporaction;
 
+import lille1.eservices.sporaction.model.Profil;
+import lille1.eservices.sporaction.sqlite.ProfilsDB;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -83,7 +85,14 @@ public class Login extends Activity {
 	                		if(profil != null) {
 	                			Toast.makeText(getApplicationContext(), 
 			                			"Succés de la connexion", 
-			    	        			Toast.LENGTH_SHORT).show();	
+			    	        			Toast.LENGTH_SHORT).show();
+	                			
+	                			// Lancement de l'Activity "ParticipationList"
+			    	        	Intent participationList = new Intent(getApplicationContext(), ParticipationList.class);
+			                    startActivity(participationList);
+	
+			                    // Fermeture de l'Activity "Login"
+			    	        	finish();
 	                		} else {
 	                			Toast.makeText(getApplicationContext(), 
 			                			"Pseudo ou mot de passe invalide. Merci de ressayer", 

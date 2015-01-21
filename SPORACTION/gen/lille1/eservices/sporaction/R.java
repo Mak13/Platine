@@ -1091,14 +1091,14 @@ containing a value of this type.
         public static final int action_menu_divider=0x7f050016;
         public static final int action_menu_presenter=0x7f050017;
         public static final int action_mode_close_button=0x7f050024;
-        public static final int action_settings=0x7f050047;
+        public static final int action_settings=0x7f050048;
         public static final int activity_chooser_view_content=0x7f050025;
         public static final int always=0x7f05000b;
         public static final int beginning=0x7f050011;
-        public static final int btnLinkToLoginScreen=0x7f050046;
+        public static final int btnLinkToLoginScreen=0x7f050047;
         public static final int btnLinkToRegisterScreen=0x7f050040;
         public static final int btnLogin=0x7f05003f;
-        public static final int btnRegister=0x7f050045;
+        public static final int btnRegister=0x7f050046;
         public static final int checkbox=0x7f05002d;
         public static final int collapseActionView=0x7f05000d;
         public static final int default_activity_button=0x7f050028;
@@ -1114,6 +1114,7 @@ containing a value of this type.
         public static final int icon=0x7f05002a;
         public static final int ifRoom=0x7f05000a;
         public static final int image=0x7f050027;
+        public static final int list=0x7f050041;
         public static final int listMode=0x7f050001;
         public static final int list_item=0x7f050029;
         public static final int loginPassword=0x7f05003d;
@@ -1126,10 +1127,10 @@ containing a value of this type.
         public static final int progress_circular=0x7f050018;
         public static final int progress_horizontal=0x7f050019;
         public static final int radio=0x7f05002f;
-        public static final int registerEmail=0x7f050042;
-        public static final int registerPassword=0x7f050043;
-        public static final int registerPseudo=0x7f050041;
-        public static final int registerRememberMe=0x7f050044;
+        public static final int registerEmail=0x7f050043;
+        public static final int registerPassword=0x7f050044;
+        public static final int registerPseudo=0x7f050042;
+        public static final int registerRememberMe=0x7f050045;
         public static final int search_badge=0x7f050032;
         public static final int search_bar=0x7f050031;
         public static final int search_button=0x7f050033;
@@ -1204,8 +1205,9 @@ containing a value of this type.
         public static final int abc_search_view=0x7f030016;
         public static final int abc_simple_decor=0x7f030017;
         public static final int activity_login=0x7f030018;
-        public static final int activity_register=0x7f030019;
-        public static final int support_simple_spinner_dropdown_item=0x7f03001a;
+        public static final int activity_participationlist=0x7f030019;
+        public static final int activity_register=0x7f03001a;
+        public static final int support_simple_spinner_dropdown_item=0x7f03001b;
     }
     public static final class menu {
         public static final int register=0x7f0c0000;
@@ -1259,6 +1261,7 @@ containing a value of this type.
         public static final int login=0x7f0a0011;
         public static final int loginBTN=0x7f0a0013;
         public static final int notRegistredYet=0x7f0a0018;
+        public static final int participationList=0x7f0a001a;
         public static final int password=0x7f0a0016;
         public static final int pseudo=0x7f0a0014;
         public static final int register=0x7f0a0010;

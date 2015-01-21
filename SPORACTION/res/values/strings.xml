@@ -14,6 +14,6 @@
     <string name="alreadyregistred">Déjà inscrit. Connexion!</string>
     <string name="notRegistredYet">Pas encore de compte. Inscription!</string>
     <string name="rememberme">Se souvenir de moi</string>
-    
+    <string name="participationList">MES PARTIES PARTICIPEES</string>
 
 </resources>
