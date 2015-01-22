@@ -1,6 +1,6 @@
 *~
 /.metadata/
-/.bin/*
+~/bin/*
 /..settings/*
 .classpath
 project.properties
