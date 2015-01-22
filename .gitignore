@@ -6,4 +6,11 @@
 /.settings/
 .classpath
 project.properties
+/**/bin/**/*
+/./**/bin/**/*
+./**/bin/**/*
+**/bin/**/*
+*/bin/**/*
+bin/**/*
+/**/bin/*
 
