@@ -14,6 +14,35 @@
     <string name="alreadyregistred">Déjà inscrit. Connexion!</string>
     <string name="notRegistredYet">Pas encore de compte. Inscription!</string>
     <string name="rememberme">Se souvenir de moi</string>
-    <string name="participationList">MES PARTIES PARTICIPEES</string>
+    <string name="participationList">MES PARTIES PARTICIPEES</string>    
+    <string name="monProfil">Mon PROFIL</string>
+    <string name="Adresse">adresse</string>
+    <string name="Sports">sport</string>
+    <string name="sports">Sports</string>
+    <string name="plagehoraire">Plage horaire</string>
+    <string name="rayongeographique">Rayon Géographique</string>
+    <string name="btnLinkToEditProfilScreen">Editer le profil</string>
+    <string name="editProfil">EDITER PROFIL</string>
+    <string name="codepostal">Code postal</string>
+    <string name="ville">Ville</string>
+    <string name="autre">Sport autre</string>
+    <string name="basket">Basketball</string>
+    <string name="foot">Football</string>
+    <string name="handball">Hanball</string>
+    <string name="tennis">Tennis</string>
+    <string name="piscine">Piscine</string>
+    <string name="volley">VolleyBall</string>
+    <string name="squash">Squash</string>
+    <string name="athletisme">Athlétisme</string>
+    <string name="niveaux">Niveaux</string>
+    <string name="matinee">Matinée</string>
+    <string name="midi">12h-14h</string>
+    <string name="apresmidi">Après-midi</string>
+    <string name="soiree">Soirée (18h)</string>
+    <string name="unkm">1 Km</string>
+    <string name="deuxkm">2 Km</string>
+    <string name="cinqkm">5 Km</string>
+    <string name="dixkm">10 Km</string>
+    <string name="valider">Valider</string>
 
 </resources>

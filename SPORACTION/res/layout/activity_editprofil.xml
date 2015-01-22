@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:background="#3b3b3b" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dip" >
+
+        <!-- View Title Label -->
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="10dip"
+            android:layout_weight="1"
+            android:text="@string/editProfil"
+            android:textColor="#FFF"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <!-- Pseudo TextField -->
+
+
+        <!-- Password TextField -->
+
+
+        <!-- RememberMe Button -->
+
+
+        <!-- login Button -->
+
+
+        <!-- Link to Register Screen Button -->
+
+        <LinearLayout
+            android:layout_width="152dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:layout_weight="1"
+            android:orientation="vertical" >
+
+            <EditText
+                android:id="@+id/adresse"
+                android:layout_width="179dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:inputType="textPostalAddress"
+                android:text="@string/Adresse" />
+
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/codepostal"
+            android:layout_width="129dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:ems="10"
+            android:text="@string/codepostal" />
+
+        <EditText
+            android:id="@+id/ville"
+            android:layout_width="124dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:ems="10"
+            android:text="@string/ville" />
+
+        <TextView
+            android:id="@+id/sports"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/sports"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="3.27" >
+
+            <TableRow
+                android:id="@+id/tableRow1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <CheckBox
+                    android:id="@+id/basket"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/basket" />
+
+                <CheckBox
+                    android:id="@+id/foot"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/foot" />
+
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableRow2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <CheckBox
+                    android:id="@+id/handball"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/handball" />
+
+                <CheckBox
+                    android:id="@+id/tennis"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tennis" />
+
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableRow3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <CheckBox
+                    android:id="@+id/piscine"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/piscine" />
+
+                <CheckBox
+                    android:id="@+id/volley"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/volley" />
+
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableRow4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <CheckBox
+                    android:id="@+id/squash"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/squash" />
+
+                <CheckBox
+                    android:id="@+id/athletisme"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/athletisme" />
+
+            </TableRow>
+        </TableLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" >
+
+            <CheckBox
+                android:id="@+id/autre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/autre" />
+
+            <EditText
+                android:id="@+id/autreSport"
+                android:layout_width="185dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:text="@string/autre" >
+
+                <requestFocus />
+            </EditText>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/niveaux"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/niveaux"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/sport"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/sports"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical" >
+
+            <ListView
+                android:id="@+id/listView1"
+                android:layout_width="122dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right" >
+
+            </ListView>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/plagehoraire"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/plagehoraire"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical" >
+
+            <CheckBox
+                android:id="@+id/matinee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/matinee" />
+
+            <CheckBox
+                android:id="@+id/midi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/midi" />
+
+            <CheckBox
+                android:id="@+id/apresmidi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/apresmidi" />
+
+            <CheckBox
+                android:id="@+id/soiree"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/soiree" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/rayongeographique"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/rayongeographique"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical" >
+
+            <CheckBox
+                android:id="@+id/unkm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/unkm" />
+
+            <CheckBox
+                android:id="@+id/deuxkm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/deuxkm" />
+
+            <CheckBox
+                android:id="@+id/cinqkm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cinqkm" />
+
+            <CheckBox
+                android:id="@+id/dixkm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/dixkm" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/Btnvalider"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/valider" />
+
+    </LinearLayout>
+
+</ScrollView>
