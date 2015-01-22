@@ -1,7 +1,8 @@
 *~
 /.metadata/
-/.bin/
-/..settings/
+/.bin/*
+/..settings/*
 .classpath
 project.properties
 *.class
+*.jar
