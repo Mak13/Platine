@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:background="#3b3b3b" >
+
+   <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dip" >
+
+  
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="10dip"
+            android:layout_weight="1"
+            android:text="@string/maPartie"
+            android:textColor="#FFF"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+       
+        <TextView
+            android:id="@+id/nomSport"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:text="Football"
+            android:textSize="40sp"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+       
+       <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" >
+            
+           <TextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="left"
+            android:text="@string/date"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+           
+           <TextView
+            android:id="@+id/dateval"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="13/06/2015"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+           
+           
+           
+        </LinearLayout>
+        
+          <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" >
+           
+        <TextView
+            android:id="@+id/heure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/heure"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+        
+        <TextView
+            android:id="@+id/heureVal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="15h30"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+        
+        </LinearLayout>
+        
+      	<LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" >
+        
+      	   <TextView
+            android:id="@+id/niveau"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/niveau"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+        
+            <TextView
+            android:id="@+id/niveauVal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Débutant"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+            
+            </LinearLayout>
+            
+      	
+      	 	<LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" >
+            
+      	 	<TextView
+            android:id="@+id/ville"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/ville"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+      	 	
+      	 	<TextView
+            android:id="@+id/villeVal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Wambrechies"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+      	 	    
+         </LinearLayout>
+          
+        
+            <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" >
+            
+      	 	<TextView
+            android:id="@+id/terrain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/terrain"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+      	 	
+      	 	<TextView
+            android:id="@+id/terrainVal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Stade Leroux"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+      	 	    
+         </LinearLayout>
+         
+            <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" >
+            
+      	 	<TextView
+            android:id="@+id/materiel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/materiel"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+      	 	
+      	 	<TextView
+            android:id="@+id/materielVal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Ballon"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+      	 	    
+         </LinearLayout>
+           
+           
+           
+           <TextView
+            android:id="@+id/participant"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="@string/participant"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+        
+ 
+        
+
+        <LinearLayout
+            android:id="@+id/participantlist"
+            android:layout_width="152dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:layout_weight="1"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/joueur1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="joueur1"
+                android:textAppearance="?android:attr/textAppearanceLarge"  />
+
+            <TextView
+                android:id="@+id/joueur2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="joueur2" 
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <TextView
+                android:id="@+id/joueur3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="joueur3"
+                android:textAppearance="?android:attr/textAppearanceLarge"  />
+
+            <TextView
+                android:id="@+id/joueur4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="joueur4"
+                android:textAppearance="?android:attr/textAppearanceLarge"  />
+        </LinearLayout>
+
+      
+    </LinearLayout>
+
+</ScrollView>

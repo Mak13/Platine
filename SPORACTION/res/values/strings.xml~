@@ -14,10 +14,9 @@
     <string name="alreadyregistred">Déjà inscrit. Connexion!</string>
     <string name="notRegistredYet">Pas encore de compte. Inscription!</string>
     <string name="rememberme">Se souvenir de moi</string>
-    <string name="participationList">MES PARTIES PARTICIPEES</string>  
-    <string name="organisationList">MES PARTIES ORGANISEES</string>  
+    <string name="participationList">MES PARTIES PARTICIPEES</string>
+    <string name="participationDetails">PARTIE EN DETAILS</string>
     <string name="monProfil">Mon PROFIL</string>
-    <string name="maPartie">Ma partie</string>
     <string name="Adresse">adresse</string>
     <string name="Sports">sport</string>
     <string name="sports">Sports</string>
@@ -46,13 +45,5 @@
     <string name="cinqkm">5 Km</string>
     <string name="dixkm">10 Km</string>
     <string name="valider">Valider</string>
-    <string name="date">Date</string>
-    <string name="heure">Heure</string>
-    <string name="niveau">Niveau</string>
-    <string name="terrain">Terrain</string>
-    <string name="materiel">Materiel</string>
-    <string name="participant">Participant</string>
-    <string name="sport">Sport</string>
-    <string name="editPartie">Edition de partie</string>
 
 </resources>
