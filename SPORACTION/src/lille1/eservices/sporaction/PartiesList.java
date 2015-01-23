@@ -23,6 +23,7 @@ public class PartiesList extends Activity {
 	private PartiesDB partieDb;
 	private SportsDB sportDb;
 	private TerrainsDB terrainDb;
+	private Partie partie;
 	private ArrayList<Partie> parties = new ArrayList<Partie>();
 	ListView listView;
 
@@ -51,11 +52,13 @@ public class PartiesList extends Activity {
         	@Override
         	public void onItemClick(AdapterView<?> parent, View view,
         			int position, long id) {
-        		Partie partie = parties.get(position);
+        		
+        		Partie partie = parties.get(position);       		
+        		
                 
                 Intent intent = new Intent(PartiesList.this, PartiesDetails.class);
-                /*intent.putExtra("id", Integer.toString(task.getId()));
-                intent.putExtra("type", task.getType());
+                intent.putExtra("id", Integer.toString(partie.getId()));
+               /* intent.putExtra("type", task.getType());
            		intent.putExtra("longitude", task.getLongitude());
            		intent.putExtra("latitude", task.getLatitude());
            		intent.putExtra("adress", task.getAdress());

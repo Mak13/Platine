@@ -2,6 +2,7 @@ package lille1.eservices.sporaction.sqlite;
 
 import java.util.ArrayList;
 import lille1.eservices.sporaction.model.Partie;
+import lille1.eservices.sporaction.model.Sport;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -289,5 +290,28 @@ public class PartiesDB {
         while (curseur.moveToNext());
         curseur.close();
         return list;
+    }
+	
+	public Partie getPartieById(int id) {
+        String[] columns = {KEY_ID, KEY_DATE, KEY_HORAIRE, KEY_SPORT_ID,
+        		KEY_NIVEAU, KEY_VILLE, KEY_TYPE, KEY_TERRAIN_ID};
+        
+        Cursor curseur = db.query(TABLE_NAME, columns, "id = '"+id+"'"
+        		, null,  null, null, null) ;
+        
+        if (curseur.getCount() == 0) return null;
+        
+        curseur.moveToFirst();
+        Partie partie = new Partie();
+        partie.setId(curseur.getInt(0));
+        partie.setDate(curseur.getString(1));
+        partie.setHoraire(curseur.getString(2));
+        partie.setSportId(curseur.getInt(3));
+        partie.setNiveau(curseur.getString(4));
+        partie.setVille(curseur.getString(5));
+        partie.setType(curseur.getString(6));
+        partie.setTerrainId(curseur.getInt(7));
+        curseur.close();
+        return partie;
     }
 }

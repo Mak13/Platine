@@ -2,6 +2,7 @@ package lille1.eservices.sporaction.sqlite;
 
 import java.util.ArrayList;
 
+import lille1.eservices.sporaction.model.Partie;
 import lille1.eservices.sporaction.model.Terrain;
 
 import android.content.ContentValues;
@@ -151,5 +152,25 @@ public class TerrainsDB {
         while (curseur.moveToNext());
         curseur.close();
         return list;
+    }
+	
+	public Terrain getPartieById(int id) {
+        String[] columns = {KEY_ID, KEY_NOM, KEY_ADRESSE, KEY_CODEPOSTAL,
+        		KEY_VILLE};
+        
+        Cursor curseur = db.query(TABLE_NAME, columns, "id = '"+id+"'"
+        		, null,  null, null, null) ;
+        
+        if (curseur.getCount() == 0) return null;
+        
+        curseur.moveToFirst();
+    	Terrain terrain = new Terrain();
+    	terrain.setId(curseur.getInt(0));
+    	terrain.setNom(curseur.getString(1));
+    	terrain.setAdresse(curseur.getString(2));
+    	terrain.setCodePostal(curseur.getString(3));
+    	terrain.setVille(curseur.getString(4));
+        curseur.close();
+        return terrain;
     }
 }
