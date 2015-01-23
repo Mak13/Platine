@@ -21,7 +21,7 @@ public class Login extends Activity {
 	CheckBox checkBox;
 	Button loginButton, linkToRegisterButton;
 	
-	// Enregistrement des préférences
+	// Enregistrement des prï¿½fï¿½rences
 	public static final String PREFS_NAME = ".Preferences";   
 	private static final String PREF_PSEUDO = "pseudo";
 	private static final String PREF_PASSWORD = "password";
@@ -32,14 +32,14 @@ public class Login extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         
-        // Importation des caractéristiques des champs et boutons
+        // Importation des caractï¿½ristiques des champs et boutons
         inputPseudo = (EditText) findViewById(R.id.loginPseudo);
         inputPassword = (EditText) findViewById(R.id.loginPassword);
         checkBox = (CheckBox)findViewById(R.id.loginRememberMe);
         loginButton = (Button) findViewById(R.id.btnLogin);
         linkToRegisterButton = (Button) findViewById(R.id.btnLinkToRegisterScreen);
         
-        // Restauration des préférences sauvegardées si la checkbox est cochée
+        // Restauration des prï¿½fï¿½rences sauvegardï¿½es si la checkbox est cochï¿½e
         SharedPreferences pref = getSharedPreferences(PREFS_NAME,MODE_PRIVATE);  
         String pseudo = pref.getString(PREF_PSEUDO, "");
         String password = pref.getString(PREF_PASSWORD, "");
@@ -57,7 +57,7 @@ public class Login extends Activity {
      	
         loginButton.setOnClickListener(new View.OnClickListener() {      
         	public void onClick(View view) {
-        		// Enregistrement des préférences si la checkbox est cochée  
+        		// Enregistrement des prï¿½fï¿½rences si la checkbox est cochï¿½e  
 	            if(checkBox.isChecked()) {
 	            	getSharedPreferences(PREFS_NAME,MODE_PRIVATE)
 	                	.edit()
@@ -70,7 +70,7 @@ public class Login extends Activity {
 	            	getSharedPreferences(PREFS_NAME,MODE_PRIVATE).edit().clear().commit();
 	            }
 	            
-        		// Récupération du contenu des EditText
+        		// Rï¿½cupï¿½ration du contenu des EditText
 	        	String pseudo = inputPseudo.getText().toString();
 	        	String password = inputPassword.getText().toString();
 	        	
@@ -84,7 +84,7 @@ public class Login extends Activity {
 	                		
 	                		if(profil != null) {
 	                			Toast.makeText(getApplicationContext(), 
-			                			"Succés de la connexion", 
+			                			"Succï¿½s de la connexion", 
 			    	        			Toast.LENGTH_SHORT).show();
 	                			
 	                			// Lancement de l'Activity "ParticipationList"
@@ -100,12 +100,12 @@ public class Login extends Activity {
 	                		}
 	                	} else {
 	                		Toast.makeText(getApplicationContext(), 
-		                			"Le mot de passe est très court (min 8 caractères)", 
+		                			"Le mot de passe est trï¿½s court (min 8 caractï¿½res)", 
 		    	        			Toast.LENGTH_SHORT).show();
 	                	}
 		            } else {
 		            	Toast.makeText(getApplicationContext(), 
-	                			"Le pseudo est très court (min 6 caractères)", 
+	                			"Le pseudo est trï¿½s court (min 6 caractï¿½res)", 
 	    	        			Toast.LENGTH_SHORT).show();
 		            }
 	        		
@@ -141,7 +141,7 @@ public class Login extends Activity {
 		super.onDestroy();
 	}
     
- // Test si le pseudo fait plus de 6 caractères
+ // Test si le pseudo fait plus de 6 caractï¿½res
     public static boolean isValidPseudo(String pseudo) {
     	if(pseudo.length() >= 6)
     		return true;
@@ -149,7 +149,7 @@ public class Login extends Activity {
     		return false;
     }
 
-    // Teste si le mot de passe fait plus de 8 caractères
+    // Teste si le mot de passe fait plus de 8 caractï¿½res
     public static boolean isValidPassword(String password) {
     	if(password.length() >= 8)
     		return true;

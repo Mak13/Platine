@@ -63,6 +63,26 @@ public class SportsDB {
 				{String.valueOf(id)});
 	}
 	
+	public Sport getSportById(int id) {
+        String[] columns = {KEY_ID, KEY_NOM, KEY_MIN_PARTICIPANTS,
+        		KEY_MAX_PARTICIPANTS, KEY_MATERIELS};
+        
+        Cursor curseur = db.query(TABLE_NAME, columns, "id = '"+id+"'"
+        		, null,  null, null, null) ;
+        
+        if (curseur.getCount() == 0) return null;
+        
+        curseur.moveToFirst();
+        Sport sport = new Sport();
+        sport.setId(id);
+        sport.setNom(curseur.getString(1));
+        sport.setMinParticipants(curseur.getInt(2));
+        sport.setMaxParticipants(curseur.getInt(3));
+        sport.setMateriels(curseur.getString(4));
+        curseur.close();
+        return sport;
+    }
+	
 	public Sport getSportByNom(String nom) {
         String[] columns = {KEY_ID, KEY_NOM, KEY_MIN_PARTICIPANTS,
         		KEY_MAX_PARTICIPANTS, KEY_MATERIELS};

@@ -1,2 +1,12 @@
-*~
-/.metadata/
+./.metadata/
+./appcompat_v7
+
+./SPORACTION/bin/
+./SPORACTION/.settings/
+./SPORACTION/gen/
+./SPORACTION/libs/
+./SPORACTION/.classpath
+./SPORACTION/.project
+./SPORACTION/proguard-project
+./SPORACTION/project.properties
+
