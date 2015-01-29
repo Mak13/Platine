@@ -80,7 +80,7 @@ public class PartiesList extends Activity {
         
 
         //Data for tests
-        /*ArrayList<Partie> partiesTest = new ArrayList<Partie>();
+        ArrayList<Partie> partiesTest = new ArrayList<Partie>();
         
         sportDb.insert(new Sport(1, "Football", 6, 22, "Ballon"));
         int sportId = sportDb.getSportByNom("Football").getId();
@@ -92,7 +92,7 @@ public class PartiesList extends Activity {
         	partieDb.insert(new Partie(i, "23/01/2015", "08h00-10h00", sportId,
         			"Moyen", "Lille", "Participée", terrainId));
         	partiesTest = partieDb.getPartiesByVille("Lille");
-        }*/
+        }
 
         parties = partieDb.getParties();
         
