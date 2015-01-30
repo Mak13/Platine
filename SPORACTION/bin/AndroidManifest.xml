@@ -38,7 +38,7 @@
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name=".PartiesDetails"
+            android:name=".ParticipationsDetails"
             android:label="@string/app_name" >
         </activity>
     </application>
