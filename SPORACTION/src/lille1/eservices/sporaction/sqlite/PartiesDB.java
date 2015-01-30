@@ -15,7 +15,6 @@ public class PartiesDB {
 	public static final String KEY_SPORT_ID = "sportId";
 	public static final String KEY_NIVEAU = "niveau";
 	public static final String KEY_VILLE = "ville";
-	public static final String KEY_TYPE = "type";
 	public static final String KEY_TERRAIN_ID = "terrainId";
 	public static final String TABLE_NAME = "Partie";
 	private static final int DB_VERSION = 1;
@@ -44,7 +43,6 @@ public class PartiesDB {
 		values.put(KEY_SPORT_ID, partie.getSportId());
 		values.put(KEY_NIVEAU, partie.getNiveau());
 		values.put(KEY_VILLE, partie.getVille());
-		values.put(KEY_TYPE, partie.getType());
 		values.put(KEY_TERRAIN_ID, partie.getTerrainId());
 		
 		// Insert the new row, returning the primary key value of the new row
@@ -59,7 +57,6 @@ public class PartiesDB {
 		values.put(KEY_SPORT_ID, partie.getSportId());
 		values.put(KEY_NIVEAU, partie.getNiveau());
 		values.put(KEY_VILLE, partie.getVille());
-		values.put(KEY_TYPE, partie.getType());
 		values.put(KEY_TERRAIN_ID, partie.getTerrainId());
 
 		// Insert the new row, returning the primary key value of the new row
@@ -87,8 +84,7 @@ public class PartiesDB {
             partie.setSportId(curseur.getInt(3));
             partie.setNiveau(curseur.getString(4));
             partie.setVille(curseur.getString(5));
-            partie.setType(curseur.getString(6));
-            partie.setTerrainId(curseur.getInt(7));
+            partie.setTerrainId(curseur.getInt(6));
             list.add(partie);
         }
         while (curseur.moveToNext());
@@ -98,7 +94,7 @@ public class PartiesDB {
 	
 	public ArrayList<Partie> getPartiesByDate(String date) {
 		String[] columns = {KEY_ID, KEY_DATE, KEY_HORAIRE, KEY_SPORT_ID,
-        		KEY_NIVEAU, KEY_VILLE, KEY_TYPE, KEY_TERRAIN_ID};
+        		KEY_NIVEAU, KEY_VILLE, KEY_TERRAIN_ID};
 		
         ArrayList<Partie> list = new ArrayList<Partie>();
         Cursor curseur = db.query(TABLE_NAME, columns, "date = '"+date+"'"
@@ -115,8 +111,7 @@ public class PartiesDB {
             partie.setSportId(curseur.getInt(3));
             partie.setNiveau(curseur.getString(4));
             partie.setVille(curseur.getString(5));
-            partie.setType(curseur.getString(6));
-            partie.setTerrainId(curseur.getInt(7));
+            partie.setTerrainId(curseur.getInt(6));
             list.add(partie);
         }
         while (curseur.moveToNext());
@@ -126,7 +121,7 @@ public class PartiesDB {
 	
 	public ArrayList<Partie> getPartiesByHoraire(String horaire) {
 		String[] columns = {KEY_ID, KEY_DATE, KEY_HORAIRE, KEY_SPORT_ID,
-        		KEY_NIVEAU, KEY_VILLE, KEY_TYPE, KEY_TERRAIN_ID};
+        		KEY_NIVEAU, KEY_VILLE, KEY_TERRAIN_ID};
 		
         ArrayList<Partie> list = new ArrayList<Partie>();
         Cursor curseur = db.query(TABLE_NAME, columns, "horaire = '"+horaire+"'"
@@ -143,8 +138,7 @@ public class PartiesDB {
             partie.setSportId(curseur.getInt(3));
             partie.setNiveau(curseur.getString(4));
             partie.setVille(curseur.getString(5));
-            partie.setType(curseur.getString(6));
-            partie.setTerrainId(curseur.getInt(7));
+            partie.setTerrainId(curseur.getInt(6));
             list.add(partie);
         }
         while (curseur.moveToNext());
@@ -154,7 +148,7 @@ public class PartiesDB {
 	
 	public ArrayList<Partie> getPartiesBySport(int sportId) {
 		String[] columns = {KEY_ID, KEY_DATE, KEY_HORAIRE, KEY_SPORT_ID,
-        		KEY_NIVEAU, KEY_VILLE, KEY_TYPE, KEY_TERRAIN_ID};
+        		KEY_NIVEAU, KEY_VILLE, KEY_TERRAIN_ID};
 		
         ArrayList<Partie> list = new ArrayList<Partie>();
         Cursor curseur = db.query(TABLE_NAME, columns, "sportId = '"+sportId+"'"
@@ -171,8 +165,7 @@ public class PartiesDB {
             partie.setSportId(curseur.getInt(3));
             partie.setNiveau(curseur.getString(4));
             partie.setVille(curseur.getString(5));
-            partie.setType(curseur.getString(6));
-            partie.setTerrainId(curseur.getInt(7));
+            partie.setTerrainId(curseur.getInt(6));
             list.add(partie);
         }
         while (curseur.moveToNext());
@@ -182,7 +175,7 @@ public class PartiesDB {
 	
 	public ArrayList<Partie> getPartiesByNiveau(String niveau) {
 		String[] columns = {KEY_ID, KEY_DATE, KEY_HORAIRE, KEY_SPORT_ID,
-        		KEY_NIVEAU, KEY_VILLE, KEY_TYPE, KEY_TERRAIN_ID};
+        		KEY_NIVEAU, KEY_VILLE, KEY_TERRAIN_ID};
 		
         ArrayList<Partie> list = new ArrayList<Partie>();
         Cursor curseur = db.query(TABLE_NAME, columns, "niveau = '"+niveau+"'"
@@ -199,8 +192,7 @@ public class PartiesDB {
             partie.setSportId(curseur.getInt(3));
             partie.setNiveau(curseur.getString(4));
             partie.setVille(curseur.getString(5));
-            partie.setType(curseur.getString(6));
-            partie.setTerrainId(curseur.getInt(7));
+            partie.setTerrainId(curseur.getInt(6));
             list.add(partie);
         }
         while (curseur.moveToNext());
@@ -210,7 +202,7 @@ public class PartiesDB {
 	
 	public ArrayList<Partie> getPartiesByVille(String ville) {
 		String[] columns = {KEY_ID, KEY_DATE, KEY_HORAIRE, KEY_SPORT_ID,
-        		KEY_NIVEAU, KEY_VILLE, KEY_TYPE, KEY_TERRAIN_ID};
+        		KEY_NIVEAU, KEY_VILLE, KEY_TERRAIN_ID};
 		
         ArrayList<Partie> list = new ArrayList<Partie>();
         Cursor curseur = db.query(TABLE_NAME, columns, "ville = '"+ville+"'"
@@ -227,8 +219,7 @@ public class PartiesDB {
             partie.setSportId(curseur.getInt(3));
             partie.setNiveau(curseur.getString(4));
             partie.setVille(curseur.getString(5));
-            partie.setType(curseur.getString(6));
-            partie.setTerrainId(curseur.getInt(7));
+            partie.setTerrainId(curseur.getInt(6));
             list.add(partie);
         }
         while (curseur.moveToNext());
@@ -236,37 +227,10 @@ public class PartiesDB {
         return list;
     }
 	
-	public ArrayList<Partie> getPartiesByType(String type) {
-		String[] columns = {KEY_ID, KEY_DATE, KEY_HORAIRE, KEY_SPORT_ID,
-        		KEY_NIVEAU, KEY_VILLE, KEY_TYPE, KEY_TERRAIN_ID};
-		
-        ArrayList<Partie> list = new ArrayList<Partie>();
-        Cursor curseur = db.query(TABLE_NAME, columns, "type = '"+type+"'"
-        		, null,  null, null, null) ;
-        
-        if (curseur.getCount() == 0) return list;
-        
-        curseur.moveToFirst();
-        do {
-            Partie partie = new Partie();
-            partie.setId(curseur.getInt(0));
-            partie.setDate(curseur.getString(1));
-            partie.setHoraire(curseur.getString(2));
-            partie.setSportId(curseur.getInt(3));
-            partie.setNiveau(curseur.getString(4));
-            partie.setVille(curseur.getString(5));
-            partie.setType(curseur.getString(6));
-            partie.setTerrainId(curseur.getInt(7));
-            list.add(partie);
-        }
-        while (curseur.moveToNext());
-        curseur.close();
-        return list;
-    }
 	
 	public ArrayList<Partie> getPartiesByTerrain(int terrainId) {
 		String[] columns = {KEY_ID, KEY_DATE, KEY_HORAIRE, KEY_SPORT_ID,
-        		KEY_NIVEAU, KEY_VILLE, KEY_TYPE, KEY_TERRAIN_ID};
+        		KEY_NIVEAU, KEY_VILLE, KEY_TERRAIN_ID};
 		
         ArrayList<Partie> list = new ArrayList<Partie>();
         Cursor curseur = db.query(TABLE_NAME, columns, "terrainId = '"+terrainId+"'"
@@ -283,8 +247,7 @@ public class PartiesDB {
             partie.setSportId(curseur.getInt(3));
             partie.setNiveau(curseur.getString(4));
             partie.setVille(curseur.getString(5));
-            partie.setType(curseur.getString(6));
-            partie.setTerrainId(curseur.getInt(7));
+            partie.setTerrainId(curseur.getInt(6));
             list.add(partie);
         }
         while (curseur.moveToNext());
@@ -294,7 +257,7 @@ public class PartiesDB {
 	
 	public Partie getPartieById(int id) {
         String[] columns = {KEY_ID, KEY_DATE, KEY_HORAIRE, KEY_SPORT_ID,
-        		KEY_NIVEAU, KEY_VILLE, KEY_TYPE, KEY_TERRAIN_ID};
+        		KEY_NIVEAU, KEY_VILLE, KEY_TERRAIN_ID};
         
         Cursor curseur = db.query(TABLE_NAME, columns, "id = '"+id+"'"
         		, null,  null, null, null) ;
@@ -309,8 +272,7 @@ public class PartiesDB {
         partie.setSportId(curseur.getInt(3));
         partie.setNiveau(curseur.getString(4));
         partie.setVille(curseur.getString(5));
-        partie.setType(curseur.getString(6));
-        partie.setTerrainId(curseur.getInt(7));
+        partie.setTerrainId(curseur.getInt(6));
         curseur.close();
         return partie;
     }

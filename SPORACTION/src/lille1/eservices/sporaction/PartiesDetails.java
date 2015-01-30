@@ -18,12 +18,15 @@ public class PartiesDetails extends Activity {
 	private PartiesDB partieDb;
 	private SportsDB sportDb;
 	private TerrainsDB terrainsDB;
-	private TextView date, heure, nom, id, niveau, ville, terrain, materiels;
+	public Bundle monBundle;
+	private TextView date, heure, nom, niveau, ville, terrain, materiels;
+	private int profilId;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_partiesdetails);
+
         
         partieDb = new PartiesDB();
         partieDb.open(this);
@@ -42,10 +45,11 @@ public class PartiesDetails extends Activity {
         ville = (TextView) findViewById(R.id.villeVal);
         terrain = (TextView) findViewById(R.id.terrainVal);
         materiels = (TextView) findViewById(R.id.materielVal);
-        Bundle monBundle = getIntent().getExtras();  
+        monBundle = getIntent().getExtras();  
         
         if (monBundle != null) {
         	partie = partieDb.getPartieById(Integer.parseInt(monBundle.getString("id"))); 
+            profilId = monBundle.getInt("profilId");
      	}
         
         if(partie != null){
@@ -53,7 +57,7 @@ public class PartiesDetails extends Activity {
      		if (partie.getHoraire() != null)     		heure.setText(partie.getHoraire());
      		if (partie.getNiveau() != null)        		niveau.setText(partie.getNiveau());
      		if (partie.getVille() != null)  			ville.setText(partie.getVille());
-     		if (partie.getTerrainId() != 0)  			terrain.setText(terrainsDB.getPartieById(partie.getTerrainId()).getNom());
+     		if (partie.getTerrainId() != 0)  			terrain.setText(terrainsDB.getTerrainById(partie.getTerrainId()).getNom());
      		if (partie.getSportId() != 0) {
      			nom.setText(sportDb.getSportById(partie.getSportId()).getNom());
      			materiels.setText(sportDb.getSportById(partie.getSportId()).getMateriels());

@@ -154,7 +154,7 @@ public class TerrainsDB {
         return list;
     }
 	
-	public Terrain getPartieById(int id) {
+	public Terrain getTerrainById(int id) {
         String[] columns = {KEY_ID, KEY_NOM, KEY_ADRESSE, KEY_CODEPOSTAL,
         		KEY_VILLE};
         

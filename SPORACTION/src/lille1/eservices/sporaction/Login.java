@@ -88,7 +88,8 @@ public class Login extends Activity {
 			    	        			Toast.LENGTH_SHORT).show();
 	                			
 	                			// Lancement de l'Activity "ParticipationList"
-			    	        	Intent participationList = new Intent(getApplicationContext(), PartiesList.class);
+			    	        	Intent participationList = new Intent(getApplicationContext(), ParticipationList.class);
+			    	        	participationList.putExtra("profilId", profilDb.getProfilByPseudo(pseudo).getId());
 			                    startActivity(participationList);
 	
 			                    // Fermeture de l'Activity "Login"

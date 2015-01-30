@@ -42,13 +42,13 @@ public class DB extends SQLiteOpenHelper {
 	// Partie table - column names
 	public static final String KEY_DATE = "date";
 	public static final String KEY_HORAIRE = "horaire";
-	public static final String KEY_TYPE = "type";
 	
 	// Terrain table - column names
 	public static final String KEY_TERRAIN_ID = "terrainId";
 	
 	// Profil_Partie table - column names
 	public static final String KEY_PARTIE_ID = "partieId";
+	public static final String KEY_TYPE = "type";
 	
 	/******************** Table Create Statements ********************/
 	// Profil table create statement
@@ -71,8 +71,7 @@ public class DB extends SQLiteOpenHelper {
 			"CREATE TABLE " + TABLE_PARTIE + " (" + KEY_ID 
 			+ " INTEGER PRIMARY KEY AUTOINCREMENT, " + KEY_DATE + " TEXT, " 
 			+ KEY_HORAIRE + " TEXT, " + KEY_SPORT_ID + " INTEGER, " 
-			+ KEY_NIVEAU + " TEXT, " + KEY_VILLE + " TEXT, " 
-			+ KEY_TYPE + " TEXT, " + KEY_TERRAIN_ID + " INTEGER, "
+			+ KEY_NIVEAU + " TEXT, " + KEY_VILLE + " TEXT, " + KEY_TERRAIN_ID + " INTEGER, "
 			+ " FOREIGN KEY ("+KEY_SPORT_ID+") REFERENCES "+TABLE_SPORT+" ("+KEY_ID+")" 
 			+ " FOREIGN KEY ("+KEY_TERRAIN_ID+") REFERENCES "+TABLE_TERRAIN+" ("+KEY_ID+"));";
 	
@@ -87,8 +86,7 @@ public class DB extends SQLiteOpenHelper {
 	public static final String PROFIL_SPORT_TABLE_CREATE =
 			"CREATE TABLE " + TABLE_PROFIL_SPORT + " (" + KEY_ID 
 			+ " INTEGER PRIMARY KEY AUTOINCREMENT, " + KEY_PROFIL_ID 
-			+ " INTEGER, " + KEY_SPORT_ID + " INTEGER, " 
-			+ KEY_NIVEAU + " TEXT, "
+			+ " INTEGER, " + KEY_SPORT_ID + " INTEGER, " + KEY_NIVEAU + " TEXT, "
 			+ " FOREIGN KEY ("+KEY_PROFIL_ID+") REFERENCES "+TABLE_PROFIL+" ("+KEY_ID+")" 
 			+ " FOREIGN KEY ("+KEY_SPORT_ID+") REFERENCES "+TABLE_SPORT+" ("+KEY_ID+"));";
 	
@@ -96,7 +94,7 @@ public class DB extends SQLiteOpenHelper {
 	public static final String PROFIL_PARTIE_TABLE_CREATE =
 			"CREATE TABLE " + TABLE_PROFIL_PARTIE + " (" + KEY_ID 
 			+ " INTEGER PRIMARY KEY AUTOINCREMENT, " + KEY_PROFIL_ID 
-			+ " INTEGER, " + KEY_PARTIE_ID + " INTEGER, "
+			+ " INTEGER, " + KEY_PARTIE_ID + " INTEGER, " + KEY_TYPE  + " TEXT, "
 			+ " FOREIGN KEY ("+KEY_PROFIL_ID+") REFERENCES "+TABLE_PROFIL+" ("+KEY_ID+")" 
 			+ " FOREIGN KEY ("+KEY_PARTIE_ID+") REFERENCES "+TABLE_PARTIE+" ("+KEY_ID+"));";
 	/***************************************************************/
