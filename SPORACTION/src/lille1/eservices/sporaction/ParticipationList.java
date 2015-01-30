@@ -64,7 +64,7 @@ public class ParticipationList extends Activity {
         		Partie partie = parties.get(position);       		
         		
                 
-                Intent intent = new Intent(ParticipationList.this, ParticipationsDetails.class);
+                Intent intent = new Intent(ParticipationList.this, ParticipationDetails.class);
                 intent.putExtra("id", Integer.toString(partie.getId()));
                 intent.putExtra("profilId", monBundle.getInt("profilId"));
            		/*intent.putExtra("longitude", task.getLongitude());

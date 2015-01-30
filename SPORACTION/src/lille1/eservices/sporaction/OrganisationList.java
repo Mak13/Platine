@@ -45,7 +45,7 @@ public class OrganisationList extends Activity {
         			int position, long id) {
         		Partie partie = parties.get(position);
                 
-                Intent intent = new Intent(OrganisationList.this, ParticipationsDetails.class);
+                Intent intent = new Intent(OrganisationList.this, ParticipationDetails.class);
                /* intent.putExtra("id", Integer.toString(task.getId()));
                 intent.putExtra("type", task.getType());
            		intent.putExtra("longitude", task.getLongitude());
