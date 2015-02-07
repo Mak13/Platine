@@ -1,24 +1,24 @@
 package lille1.eservices.sporaction;
 
+import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
 import java.util.regex.Pattern;
 
+import lille1.eservices.sporaction.json_mysql.Profils;
 import lille1.eservices.sporaction.model.Profil;
-import lille1.eservices.sporaction.sqlite.ProfilsDB;
-
+import lille1.eservices.sporaction.tasks.RegisterTask;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.Toast;
-
 
 public class Register extends Activity {
 
-	private ProfilsDB profilDb;
 	private Profil profil;
 	private EditText inputPseudo, inputEmail, inputPassword;
 	private CheckBox checkBox;
@@ -46,8 +46,7 @@ public class Register extends Activity {
         // Creation of a new profil
      	profil = new Profil();
      	
-     	profilDb = new ProfilsDB();
-     	profilDb.open(this);
+     	new Profils();
      	
         // Click sur le bouton de creation de compte
      	registerButton.setOnClickListener(new OnClickListener() {
@@ -79,42 +78,38 @@ public class Register extends Activity {
 		                if(isValidEmail(email)) {
 		                	// Test du mot de passe
 		                	if(isValidPassword(password)) {
-		                		if(profilDb.getProfilByPseudo(pseudo) == null &&
-		                				profilDb.getProfilByEmail(email) == null) {
-		                			try { 
-					                	// Préparation pour ajout dans la base
-					    	        	profil.setPseudo(pseudo);
-					    	        	profil.setMail(email);
-					    	        	profil.setMotDePasse(password);
-					    	        	
-					    	        	// Ajout dans la base
-					    	        	profilDb.insert(profil);
-					    	        	
-					    	        	Toast.makeText(getApplicationContext(), 
-					    	        			"Succés de l'inscription", 
-					    	        			Toast.LENGTH_SHORT).show();
-					    	        	
-					                    // Lancement de l'Activity "Login"
-					    	        	Intent login = new Intent(getApplicationContext(), Login.class);
-					                    startActivity(login);
-			
-					                    // Fermeture de l'Activity "Register"
-					    	        	finish();
-				                	} catch (Exception e){
-				                    	Toast.makeText(getApplicationContext(), 
-					    	        			"Echec de l'inscription", 
-					    	        			Toast.LENGTH_SHORT).show();
-				                    } 
-		                		} else if(profilDb.getProfilByPseudo(pseudo) != null) {
+		                		ArrayList<String> result = new ArrayList<String>();
+		                		
+		                		// Préparation pour ajout dans la base
+			    	        	profil.setPseudo(pseudo);
+			    	        	profil.setMail(email);
+			    	        	profil.setMotDePasse(password);
+			    	        	
+		                		// Ajout dans la base
+			    	        	try {
+									result = new RegisterTask().execute(profil).get();
+								} catch (InterruptedException e) {
+									e.printStackTrace();
+								} catch (ExecutionException e) {
+									e.printStackTrace();
+								}
+			    	        	
+		                		if(Integer.parseInt(result.get(0)) == 1) {
 		                			Toast.makeText(getApplicationContext(), 
-				    	        			"Le Pseudo choisi est déjà utilisé par un autre membre", 
+				    	        			"Succés de l'inscription", 
 				    	        			Toast.LENGTH_SHORT).show();
+		                			
+		                			// Lancement de l'Activity "Login"
+				    	        	Intent login = new Intent(getApplicationContext(), Login.class);
+				                    startActivity(login);
+				                    
+				                    // Fermeture de l'Activity "Register"
+				    	        	finish();
 		                		} else {
 		                			Toast.makeText(getApplicationContext(), 
-				    	        			"L'adresse mail choisie est déjà utilisée par un autre membre", 
+		                					result.get(1), 
 				    	        			Toast.LENGTH_SHORT).show();
 		                		}
-		                		
 		                	} else {
 		                		Toast.makeText(getApplicationContext(), 
 			                			"Le mot de passe est très court (min 8 caractères)", 
@@ -159,7 +154,6 @@ public class Register extends Activity {
     
     @Override
 	protected void onDestroy() {
-    	profilDb.close();
 		super.onDestroy();
 	}
 

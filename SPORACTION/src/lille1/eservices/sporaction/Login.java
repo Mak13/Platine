@@ -1,7 +1,11 @@
 package lille1.eservices.sporaction;
 
+import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
+
 import lille1.eservices.sporaction.model.Profil;
 import lille1.eservices.sporaction.sqlite.ProfilsDB;
+import lille1.eservices.sporaction.tasks.LoginTask;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -21,7 +25,7 @@ public class Login extends Activity {
 	CheckBox checkBox;
 	Button loginButton, linkToRegisterButton;
 	
-	// Enregistrement des prï¿½fï¿½rences
+	// Enregistrement des préférences
 	public static final String PREFS_NAME = ".Preferences";   
 	private static final String PREF_PSEUDO = "pseudo";
 	private static final String PREF_PASSWORD = "password";
@@ -32,14 +36,14 @@ public class Login extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         
-        // Importation des caractï¿½ristiques des champs et boutons
+        // Importation des caractéristiques des champs et boutons
         inputPseudo = (EditText) findViewById(R.id.loginPseudo);
         inputPassword = (EditText) findViewById(R.id.loginPassword);
         checkBox = (CheckBox)findViewById(R.id.loginRememberMe);
         loginButton = (Button) findViewById(R.id.btnLogin);
         linkToRegisterButton = (Button) findViewById(R.id.btnLinkToRegisterScreen);
         
-        // Restauration des prï¿½fï¿½rences sauvegardï¿½es si la checkbox est cochï¿½e
+        // Restauration des préférences sauvegardées si la checkbox est cochée
         SharedPreferences pref = getSharedPreferences(PREFS_NAME,MODE_PRIVATE);  
         String pseudo = pref.getString(PREF_PSEUDO, "");
         String password = pref.getString(PREF_PASSWORD, "");
@@ -52,12 +56,9 @@ public class Login extends Activity {
         // Creation of a new profil
      	profil = new Profil();
      	
-        profilDb = new ProfilsDB();
-     	profilDb.open(this);
-     	
         loginButton.setOnClickListener(new View.OnClickListener() {      
         	public void onClick(View view) {
-        		// Enregistrement des prï¿½fï¿½rences si la checkbox est cochï¿½e  
+        		// Enregistrement des préférences si la checkbox est cochée  
 	            if(checkBox.isChecked()) {
 	            	getSharedPreferences(PREFS_NAME,MODE_PRIVATE)
 	                	.edit()
@@ -70,7 +71,7 @@ public class Login extends Activity {
 	            	getSharedPreferences(PREFS_NAME,MODE_PRIVATE).edit().clear().commit();
 	            }
 	            
-        		// Rï¿½cupï¿½ration du contenu des EditText
+        		// Récupération du contenu des EditText
 	        	String pseudo = inputPseudo.getText().toString();
 	        	String password = inputPassword.getText().toString();
 	        	
@@ -80,16 +81,29 @@ public class Login extends Activity {
 		            if(isValidPseudo(pseudo)) {
 		            	// Test du mot de passe
 	                	if(isValidPassword(password)) {
-	                		profil = profilDb.getProfil(pseudo, password);
+	                		ArrayList<String> result = new ArrayList<String>();
 	                		
-	                		if(profil != null) {
+	                		// Préparation pour rechrche dans la base
+		    	        	profil.setPseudo(pseudo);
+		    	        	profil.setMotDePasse(password);
+		    	        	
+	                		// Recherche dans la base
+		    	        	try {
+								result = new LoginTask().execute(profil).get();
+							} catch (InterruptedException e) {
+								e.printStackTrace();
+							} catch (ExecutionException e) {
+								e.printStackTrace();
+							}
+	                		
+	                		if(Integer.parseInt(result.get(0)) == 1) {
 	                			Toast.makeText(getApplicationContext(), 
-			                			"Succï¿½s de la connexion", 
+			                			"Succées de la connexion", 
 			    	        			Toast.LENGTH_SHORT).show();
 	                			
 	                			// Lancement de l'Activity "ParticipationList"
 			    	        	Intent participationList = new Intent(getApplicationContext(), ParticipationList.class);
-			    	        	participationList.putExtra("profilId", profilDb.getProfilByPseudo(pseudo).getId());
+			    	        	participationList.putExtra("profilId", result.get(1));
 			                    startActivity(participationList);
 	
 			                    // Fermeture de l'Activity "Login"
@@ -101,12 +115,12 @@ public class Login extends Activity {
 	                		}
 	                	} else {
 	                		Toast.makeText(getApplicationContext(), 
-		                			"Le mot de passe est trï¿½s court (min 8 caractï¿½res)", 
+		                			"Le mot de passe est trï¿½s court (min 8 caractères)", 
 		    	        			Toast.LENGTH_SHORT).show();
 	                	}
 		            } else {
 		            	Toast.makeText(getApplicationContext(), 
-	                			"Le pseudo est trï¿½s court (min 6 caractï¿½res)", 
+	                			"Le pseudo est trï¿½s court (min 6 caractères)", 
 	    	        			Toast.LENGTH_SHORT).show();
 		            }
 	        		
