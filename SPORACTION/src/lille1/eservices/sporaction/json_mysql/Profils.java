@@ -17,6 +17,8 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONObject;
 
+import android.util.Log;
+
 public class Profils {
 	public static final String KEY_ID = "id";
 	public static final String KEY_PSEUDO = "pseudo";
