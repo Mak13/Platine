@@ -70,117 +70,18 @@
             android:text="@string/ville" />
 
         <TextView
-            android:id="@+id/sports"
+            android:id="@+id/sportfavori"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/sports"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:text="@string/sportfavori"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
 
-        <TableLayout
+        <Spinner
+            android:id="@+id/spinner1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="3.27" >
-
-            <TableRow
-                android:id="@+id/tableRow1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
-
-                <CheckBox
-                    android:id="@+id/basket"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/basket" />
-
-                <CheckBox
-                    android:id="@+id/foot"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/foot" />
-
-            </TableRow>
-
-            <TableRow
-                android:id="@+id/tableRow2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
-
-                <CheckBox
-                    android:id="@+id/handball"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/handball" />
-
-                <CheckBox
-                    android:id="@+id/tennis"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/tennis" />
-
-            </TableRow>
-
-            <TableRow
-                android:id="@+id/tableRow3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
-
-                <CheckBox
-                    android:id="@+id/piscine"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/piscine" />
-
-                <CheckBox
-                    android:id="@+id/volley"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/volley" />
-
-            </TableRow>
-
-            <TableRow
-                android:id="@+id/tableRow4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
-
-                <CheckBox
-                    android:id="@+id/squash"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/squash" />
-
-                <CheckBox
-                    android:id="@+id/athletisme"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/athletisme" />
-
-            </TableRow>
-        </TableLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" >
-
-            <CheckBox
-                android:id="@+id/autre"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/autre" />
-
-            <EditText
-                android:id="@+id/autreSport"
-                android:layout_width="185dp"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:text="@string/autre" >
-
-                <requestFocus />
-            </EditText>
-
-        </LinearLayout>
+            android:layout_weight="1" />
 
         <TextView
             android:id="@+id/niveaux"
@@ -190,27 +91,27 @@
             android:text="@string/niveaux"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
-        <TextView
-            android:id="@+id/sport"
-            android:layout_width="wrap_content"
+        <Spinner
+            android:id="@+id/spinner2"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/sports"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+            android:layout_weight="1" />
+
+        
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" >
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="vertical" >
-
-            <ListView
-                android:id="@+id/listView1"
-                android:layout_width="122dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right" >
-
-            </ListView>
 
         </LinearLayout>
 
