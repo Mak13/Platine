@@ -8,9 +8,13 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,7 +24,7 @@ public class Editprofil extends Activity {
 	
 	private ProfilsDB profilDb;
 	private Profil profil;
-//	private ArrayList<String> SportPratiques;
+//	private ArrayList<String> SportPratiques  ;
 	EditText inputAdresse, inputCodePostal, inputVille, inputAutreSport;
 	CheckBox basket, foot, hand, volley, piscine, athletisme, squash, tennis, autre;
 	CheckBox matinee, midi, apresmidi, soiree;
@@ -28,6 +32,8 @@ public class Editprofil extends Activity {
 	Button Valider, Retour;
 	TextView sport;
 	int compteurSport;
+	String sportFavori, Niveau;
+	private Spinner SportFavoriSpinner, NiveauSpinner;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,16 +55,6 @@ public class Editprofil extends Activity {
         inputAdresse = (EditText) findViewById(R.id.adresse);
         inputCodePostal = (EditText) findViewById(R.id.codepostal);
         inputVille = (EditText) findViewById(R.id.ville);
-        inputAutreSport = (EditText) findViewById(R.id.autreSport);
-        
-        basket = (CheckBox)findViewById(R.id.basket);
-        foot = (CheckBox)findViewById(R.id.foot);
-        hand = (CheckBox)findViewById(R.id.handball);
-        volley = (CheckBox)findViewById(R.id.volley);
-        piscine = (CheckBox)findViewById(R.id.piscine);
-        athletisme = (CheckBox)findViewById(R.id.athletisme);
-        tennis = (CheckBox)findViewById(R.id.tennis);
-        autre = (CheckBox)findViewById(R.id.autre);
         
         matinee = (CheckBox)findViewById(R.id.matinee);
         midi = (CheckBox)findViewById(R.id.midi);
@@ -71,7 +67,10 @@ public class Editprofil extends Activity {
         dixkm = (CheckBox)findViewById(R.id.dixkm);
         
         Valider = (Button) findViewById(R.id.Btnvalider);
-        Bundle monBundle = getIntent().getExtras();  
+        Bundle monBundle = getIntent().getExtras();        
+
+        SportFavoriSpinner = (Spinner) findViewById(R.id.spinner1);
+        NiveauSpinner = (Spinner) findViewById(R.id.spinner2);
 
   //      linkToRegisterButton = (Button) findViewById(R.id.btnLinkToRegisterScreen);
         
@@ -91,7 +90,20 @@ public class Editprofil extends Activity {
      			
      		}
      	}
-     	
+     // gestion du spinner permettant de sélectionner le sport favori
+ 		ArrayAdapter<CharSequence> adapterSportFavori = ArrayAdapter.createFromResource(
+ 				this, R.array.sportfavori_array, android.R.layout.simple_spinner_item);
+ 		adapterSportFavori.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+ 		SportFavoriSpinner.setOnItemSelectedListener((OnItemSelectedListener) this);
+ 		SportFavoriSpinner.setAdapter(adapterSportFavori);
+
+  // gestion du spinner permettant de sélectionner le niveau du sport favori
+ 	    ArrayAdapter<CharSequence> adapterNiveau= ArrayAdapter.createFromResource(
+ 	     				this, R.array.niveau_array, android.R.layout.simple_spinner_item);
+ 	   adapterNiveau.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+ 	    SportFavoriSpinner.setOnItemSelectedListener((OnItemSelectedListener) this);
+ 	    SportFavoriSpinner.setAdapter(adapterNiveau);
+ 	    
         Valider.setOnClickListener(new View.OnClickListener() {      
         	public void onClick(View view) {
         		// R�cup�ration du contenu des EditText
@@ -111,63 +123,8 @@ public class Editprofil extends Activity {
 	        	if(!ville.equals("")) {
 	        		profil.setVille(ville);       		
 	        	}
-	        	/*
-	         	//Ajout Basketball aux sports Favoris
-	         	if(basket.isChecked()){
-	         		profil.setSportsPratiques("BasketBall");
-	         	//	SportPratiques.add("BasketBall");
-	         //		sport.setText("BasketBall");
-	         		compteurSport++;
-	         	}
-	         	//Ajout Football aux sports Favoris
-	         	if(foot.isChecked()){
-	         		profil.setSportsPratiques("FootBall");
-	         //		SportPratiques.add("FootBall");
-	         //		sport.setText("FootBall");
-	         		compteurSport++;
-	         	}
-	         	//Ajout Handball aux sports Favoris
-	         	if(hand.isChecked()){
-	         		profil.setSportsPratiques("Handball");
-	         //		SportPratiques.add("Handball");
-	         	//	sport.setText("Handball");
-	         		compteurSport++;
-	         	}
-	         	//Ajout Volleyball aux sports Favoris
-	         	if(volley.isChecked()){
-	         		profil.setSportsPratiques("Volleyball");
-	            //	SportPratiques.add("Volleyball");
-	         	//	sport.setText("Volleyball");
-	         		compteurSport++;
-	         	}
-	         	//Ajout Piscine aux sports Favoris
-	         	if(piscine.isChecked()){
-	         		profil.setSportsPratiques("Piscine");
-	         	//	SportPratiques.add("Piscine");
-	         	//	sport.setText("Piscine");
-	         		compteurSport++;
-	         	}
-	         	//Ajout Athletisme aux sports Favoris
-	         	if(athletisme.isChecked()){
-	         		profil.setSportsPratiques("Athletisme");
-	         	//	SportPratiques.add("Athletisme");
-	         	//	sport.setText("Athletisme");
-	         		compteurSport++;
-	         	}
-	         	//Ajout Tennis aux sports Favoris
-	         	if(tennis.isChecked()){
-	         		profil.setSportsPratiques("Tennis");
-	         	//	SportPratiques.add("Tennis");
-	         	//	sport.setText("Tennis");
-	         		compteurSport++;
-	         	}
-	         	//Ajout Tennis aux sports Favoris
-	         	if(autre.isChecked()){
-	         		profil.setSportsPratiques(inputAutreSport.getText().toString());
-	        // 		SportPratiques.add(inputAutreSport.getText().toString());
-	         	//	sport.setText(inputAutreSport.getText().toString());
-	         		compteurSport++;
-	         	}*/
+	        	
+	       // 	profil.setSportFavori(sportFavori);
 	         	 
 	        	if(matinee.isChecked()){
 	         		profil.setPlagesHoraires("Matinee");
@@ -227,7 +184,18 @@ public class Editprofil extends Activity {
 	        	finish();
         	}});
     }
-        
+    
+    public void onItemSelected(AdapterView<?> parent, View view, int position,
+			long id) {
+
+    	sportFavori = parent.getItemAtPosition(position).toString();
+    }
+
+    public void onItemSelected1(AdapterView<?> parent, View view, int position,
+			long id) {
+
+    	Niveau = parent.getItemAtPosition(position).toString();
+    }    
     @Override
 	protected void onStart() {
     	super.onStart();
