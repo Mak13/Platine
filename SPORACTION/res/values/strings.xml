@@ -57,22 +57,4 @@
     <string name="participationDetails">PARTIE EN DETAIL</string>
     <string name="modelHeure">hh:mm</string>
     <string name="modelDate">jj/mm/aaaa</string>
-    <string name="title_activity_editeuhprofil">MainActivity</string>
-    <string name="sportfavori">Sport favori</string>
-	<string-array name="niveau_array">
-        <item>Débutant</item>
-        <item>Bon niveau</item>
-        <item>Haut niveau</item>
-    </string-array>    	
-	<string-array name="sportfavori_array">
-        <item>basketball</item>
-        <item>Hand</item>
-        <item>Piscine</item>
-        <item>Squach</item>
-        <item>Football</item>
-        <item>Tennis</item>
-        <item>Volleyball</item>
-        <item>Athlétisme</item>
-        <item>Autre</item>        
-    </string-array>
 </resources>
